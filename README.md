@@ -11,11 +11,10 @@ pip install cython
 pip install pycontact PyQt6
 ```
 
-Alternatively, clone the repository and run:
+Alternatively, clone the repository and from the repo, run:
 ```
-pip install cython PyQt5
-python setup.py build_ext -i
-python setup.py install
+pip install cython PyQt6
+pip install .
 ```
 
 ## Citation
