@@ -57,9 +57,9 @@ class TopoTrajLoaderDialog(QDialog):
     def getConfig(parent=None):
         """Static method to create the dialog and return (date, time, accepted)."""
         dialog = TopoTrajLoaderDialog(parent)
-        result = dialog.exec_()
+        result = dialog.exec()
         config = dialog.configuration()
-        return config, result == QDialog.Accepted
+        return config, result == QDialog.DialogCode.Accepted
 
 
 class FileLoaderDialog(QDialog):
@@ -130,8 +130,8 @@ class FileLoaderDialog(QDialog):
 
         # OK and Cancel buttons
         buttons = QDialogButtonBox(
-            QDialogButtonBox.Ok | QDialogButtonBox.Cancel,
-            Qt.Horizontal, self)
+            QDialogButtonBox.StandardButton.Ok | QDialogButtonBox.StandardButton.Cancel,
+            Qt.Orientation.Horizontal, self)
         buttons.accepted.connect(self.accept)
         buttons.rejected.connect(self.reject)
         grid.addWidget(buttons, 8, 0)
@@ -163,9 +163,9 @@ class FileLoaderDialog(QDialog):
     def getConfig(parent=None):
         """Static method to create the dialog and return (date, time, accepted)."""
         dialog = FileLoaderDialog(parent)
-        result = dialog.exec_()
+        result = dialog.exec()
         config = dialog.configuration()
-        return config, result == QDialog.Accepted
+        return config, result == QDialog.DialogCode.Accepted
 
 
 class AnalysisDialog(QDialog):
@@ -219,8 +219,8 @@ class AnalysisDialog(QDialog):
 
         # OK and Cancel buttons
         buttons = QDialogButtonBox(
-            QDialogButtonBox.Ok | QDialogButtonBox.Cancel,
-            Qt.Horizontal, self)
+            QDialogButtonBox.StandardButton.Ok | QDialogButtonBox.StandardButton.Cancel,
+            Qt.Orientation.Horizontal, self)
         buttons.accepted.connect(self.accept)
         buttons.rejected.connect(self.reject)
         grid.addWidget(buttons, 6, 0)
@@ -239,9 +239,9 @@ class AnalysisDialog(QDialog):
     def getMapping(parent=None):
         """Static method to create the dialog and return (date, time, accepted)."""
         dialog = AnalysisDialog(parent)
-        result = dialog.exec_()
+        result = dialog.exec()
         mapping = dialog.mapping()
-        return mapping, result == QDialog.Accepted
+        return mapping, result == QDialog.DialogCode.Accepted
 
 
 class AnalysisSingleDialog(AnalysisDialog):
@@ -259,6 +259,6 @@ class AnalysisSingleDialog(AnalysisDialog):
     def getMapping(parent=None):
         """Static method to create the dialog and return (date, time, accepted)."""
         dialog = AnalysisSingleDialog(parent)
-        result = dialog.exec_()
+        result = dialog.exec()
         mapping = dialog.mapping()
-        return mapping[0], result == QDialog.Accepted
+        return mapping[0], result == QDialog.DialogCode.Accepted

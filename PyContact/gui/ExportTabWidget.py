@@ -1,8 +1,8 @@
-import sip
+from PyQt6 import sip
 import os
-from PyQt5.QtWidgets import QTabWidget, QWidget, QGridLayout, QLabel, QPushButton, QComboBox, QLineEdit, QCheckBox, \
+from PyQt6.QtWidgets import QTabWidget, QWidget, QGridLayout, QLabel, QPushButton, QComboBox, QLineEdit, QCheckBox, \
     QFileDialog
-from PyQt5.QtCore import pyqtSignal
+from PyQt6.QtCore import pyqtSignal
 
 from .Plotters import *
 from .ErrorBox import ErrorBox
@@ -295,13 +295,13 @@ class ExportTabWidget(QTabWidget):
         self.grid2.addWidget(self.tab3.mapPlot, 3, 0, 1, 4)
         if self.map1 is None or self.map2 is None or self.contacts is None or len(self.contacts) == 0:
             box = ErrorBox(ErrorMessages.RESID_REQUIRED)
-            box.exec_()
+            box.exec()
             return
         res = self.tab3.mapPlot.plotMap(self.contacts, self.map1, self.map2, self.label1, self.label2,
                                         self.tab3.attributeBox.currentText(), self.threshold, self.nsPerFrame)
         if res == -1:
             box = ErrorBox(ErrorMessages.RESID_REQUIRED)
-            box.exec_()
+            box.exec()
         self.tab3.mapPlot.update()
 
     def pushSave(self):
@@ -334,7 +334,7 @@ class ExportTabWidget(QTabWidget):
         """Creates the Tcl script for VMD visualization of the selections."""
         if len(self.contacts) == 0:
             box = ErrorBox(ErrorMessages.NOCONTACTS)
-            box.exec_()
+            box.exec()
             return
 
         fileName = QFileDialog.getSaveFileName(self, 'Save Path')

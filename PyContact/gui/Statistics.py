@@ -1,8 +1,8 @@
-import sip
+from PyQt6 import sip
 import os
 
-from PyQt5.QtWidgets import QWidget, QFileDialog
-from PyQt5.QtGui import QIntValidator
+from PyQt6.QtWidgets import QWidget, QFileDialog
+from PyQt6.QtGui import QIntValidator
 
 from .Plotters import ContactPlotter
 from .statistics_ui import *
@@ -68,4 +68,4 @@ class Statistics(QWidget, Ui_Statistics):
         except ValueError:
             box = ErrorBox("File format " + file_extension + " is not supported.\nPlease choose from eps, pdf, pgf,"
                                                              " png, ps, raw, rgba, svg, svgz. ")
-            box.exec_()
+            box.exec()

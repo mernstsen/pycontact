@@ -1,9 +1,9 @@
-import sip
+from PyQt6 import sip
 from functools import partial
 
-from PyQt5.QtGui import QFont
-from PyQt5.QtWidgets import (QWidget, QPushButton, QLabel, QDialog, QGridLayout, QCheckBox)
-from PyQt5.Qt import Qt
+from PyQt6.QtGui import QFont
+from PyQt6.QtWidgets import (QWidget, QPushButton, QLabel, QDialog, QGridLayout, QCheckBox)
+from PyQt6.QtCore import Qt
 import numpy as np
 
 from ..core.Biochemistry import ContactType

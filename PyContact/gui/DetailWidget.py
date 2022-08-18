@@ -55,4 +55,4 @@ class Detail(QWidget, Ui_Detail):
         except ValueError:
             box = ErrorBox("File format " + file_extension + " is not supported.\nPlease choose from eps, pdf, pgf,"
                                                              " png, ps, raw, rgba, svg, svgz. ")
-            box.exec_()
+            box.exec()

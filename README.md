@@ -8,7 +8,7 @@ PyContact requires **at least Python 3.6** installed on your system.
 A recent version can be installed from `pip` via:
 ```Python
 pip install cython
-pip install pycontact PyQt5
+pip install pycontact PyQt6
 ```
 
 Alternatively, clone the repository and run:

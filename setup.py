@@ -39,7 +39,7 @@ setup(
                       'cython',
                       'seaborn',
                       'scipy',
-                      'PyQt5'],
+                      'PyQt6'],
     cmdclass={'build_ext': build_ext},
     ext_modules=cythonize(extensions),
     package_data={'PyContact': ['exampleData/defaultsession',

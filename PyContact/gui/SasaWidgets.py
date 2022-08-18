@@ -1,9 +1,9 @@
-import sip
+from PyQt6 import sip
 import time
 import os
 
 
-from PyQt5.QtWidgets import QWidget, QProgressBar, QApplication, QFileDialog
+from PyQt6.QtWidgets import QWidget, QProgressBar, QApplication, QFileDialog
 import MDAnalysis
 import numpy as np
 import multiprocessing
@@ -117,7 +117,7 @@ class SasaWidget(QWidget, Ui_SasaWidget):
             except ValueError:
                 box = ErrorBox("File format " + file_extension + " is not supported.\nPlease choose from eps, pdf, pgf,"
                                                                  " png, ps, raw, rgba, svg, svgz. ")
-                box.exec_()
+                box.exec()
 
     def exportData(self):
         """Exports the computed SASA values of each frame to a text file."""
@@ -140,14 +140,14 @@ class SasaWidget(QWidget, Ui_SasaWidget):
         # load psf and trajectory, make lists with radii and coordinates
         if self.psf == "" or self.dcd == "":
             e = ErrorBox(ErrorMessages.CHOOSEFILE)
-            e.exec_()
+            e.exec()
             return
 
         try:
             u = MDAnalysis.Universe(self.psf, self.dcd)
         except IOError:
             e = ErrorBox(ErrorMessages.FILE_NOT_FOUND)
-            e.exec_()
+            e.exec()
             return
 
         probeRadius = 1.4

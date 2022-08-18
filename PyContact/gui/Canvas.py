@@ -90,7 +90,7 @@ class Canvas(QWidget, QObject):
             self.renderContact(False)
             self.rendered = True
 
-        self.setMinimumSize(QSize(self.sizeX, self.sizeY))
+        self.setMinimumSize(QSize(int(self.sizeX), int(self.sizeY)))
 
         qp.end()
 
@@ -139,7 +139,7 @@ class Canvas(QWidget, QObject):
         # add one row for frame numbers
         self.sizeY = (len(self.contacts)+1) * rowheight
 
-        self.pixmap = QPixmap(QSize(self.sizeX, self.sizeY))
+        self.pixmap = QPixmap(QSize(int(self.sizeX), int(self.sizeY)))
         p = QPainter()
 
         if generator:
@@ -147,7 +147,7 @@ class Canvas(QWidget, QObject):
         else:
             p.begin(self.pixmap)
 
-        p.fillRect(0, 0, self.sizeX, self.sizeY, whiteColor)
+        p.fillRect(0, 0, int(self.sizeX), int(self.sizeY), whiteColor)
 
         row = 0
         rownumber = 0
@@ -171,7 +171,7 @@ class Canvas(QWidget, QObject):
             if rownumber == 0:
                 # show the frame numbers on top
                 p.setFont(QFont('Arial', 8))
-                p.drawText(start_text, row + textoffset + 2.0, "Frame:")
+                p.drawText(start_text, int(row + textoffset + 2.0), "Frame:")
 
                 off = 0
                 if self.range[0] != 0:
@@ -181,7 +181,7 @@ class Canvas(QWidget, QObject):
                         continue
                     # print(l)
                     # TODO: sometimes errors occur!
-                    p.drawText(startx + (l - 1 - self.range[0]) * offset, row + textoffset + 2.0, str(l * merge))
+                    p.drawText(int(startx + (l - 1 - self.range[0]) * offset), int(row + textoffset + 2.0), str(l * merge))
                 self.labelView.move(0, rowheight)
                 row += rowheight
             while i < len(rangedScores):
@@ -201,7 +201,7 @@ class Canvas(QWidget, QObject):
                 if self.colorScheme == ColorScheme.bbsc:
                     # pass
                     p.setBrush(QColor(bbScColor[0], bbScColor[1], bbScColor[2],
-                                      alpha))
+                                      int(alpha)))
                 elif self.colorScheme == ColorScheme.custom:
                     color = QColor(self.customColor)
                     color.setAlpha(alpha)
@@ -240,4 +240,4 @@ class Canvas(QWidget, QObject):
 
     def drawRenderedContact(self, qp):
         """Draws the rendered contact to the canvas."""
-        qp.drawPixmap(0, 0, self.sizeX, self.sizeY, self.pixmap)
+        qp.drawPixmap(0, 0, int(self.sizeX), int(self.sizeY), self.pixmap)

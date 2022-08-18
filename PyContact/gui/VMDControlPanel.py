@@ -2,8 +2,8 @@ from socket import *
 import subprocess
 from pkg_resources import resource_filename as res
 
-from PyQt5.QtWidgets import QWidget, QGridLayout, QLabel, QPushButton, QLineEdit
-from PyQt5 import QtCore
+from PyQt6.QtWidgets import QWidget, QGridLayout, QLabel, QPushButton, QLineEdit
+from PyQt6 import QtCore
 
 from .Dialogues import TopoTrajLoaderDialog
 from ..core.Biochemistry import *

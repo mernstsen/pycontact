@@ -1,5 +1,5 @@
-from PyQt5.QtWidgets import QAbstractButton
-from PyQt5.QtGui import QPixmap, QImage, QPainter
+from PyQt6.QtWidgets import QAbstractButton
+from PyQt6.QtGui import QPixmap, QImage, QPainter
 
 
 class PicButton(QAbstractButton):

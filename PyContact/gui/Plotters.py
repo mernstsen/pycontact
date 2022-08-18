@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QSizePolicy, QApplication
+from PyQt6.QtWidgets import QSizePolicy, QApplication
 import numpy as np
 from math import factorial
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg \
@@ -38,8 +38,8 @@ class MplPlotter(FigureCanvas):
         self.setParent(parent)
 
         FigureCanvas.setSizePolicy(self,
-                                   QSizePolicy.Expanding,
-                                   QSizePolicy.Expanding)
+                                   QSizePolicy.Policy.Expanding,
+                                   QSizePolicy.Policy.Expanding)
         FigureCanvas.updateGeometry(self)
 
     def compute_initial_figure(self):

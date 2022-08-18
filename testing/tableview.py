@@ -1,7 +1,7 @@
 import operator
-from PyQt5.QtCore import QAbstractTableModel,Qt,pyqtSlot
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
+from PyQt6.QtCore import QAbstractTableModel,Qt,pyqtSlot
+from PyQt6.QtGui import *
+from PyQt6.QtWidgets import *
 class MyWindow(QWidget):
     def __init__(self, data_list, header, *args):
         QWidget.__init__(self, *args)
@@ -117,4 +117,4 @@ data_list = [
 app = QApplication([])
 win = MyWindow(data_list, header)
 win.show()
-app.exec_()
+app.exec()

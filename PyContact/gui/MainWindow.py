@@ -3,13 +3,13 @@ import warnings
 import copy
 import sys
 
-import PyQt5.QtCore as QtCore
-from PyQt5.QtCore import pyqtSlot, QObject
-from PyQt5.QtWidgets import (QMainWindow, QTabWidget, QLabel, QDialog,
+import PyQt6.QtCore as QtCore
+from PyQt6.QtCore import pyqtSlot, QObject
+from PyQt6.QtWidgets import (QMainWindow, QTabWidget, QLabel, QDialog,
                              QApplication, QGridLayout, QFileDialog, QWidget)
-from PyQt5.Qt import Qt
-from PyQt5.QtGui import QIntValidator
-from PyQt5.QtSvg import QSvgGenerator
+from PyQt6.QtCore import Qt
+from PyQt6.QtGui import QIntValidator
+from PyQt6.QtSvg import QSvgGenerator
 import numpy as np
 
 from . import MainQtGui
@@ -203,7 +203,7 @@ class MainWindow(QMainWindow, MainQtGui.Ui_MainWindow, QObject):
             self.cleanInfoLabel()
         else:
             box = ErrorBox(ErrorMessages.NOEXPDATA)
-            box.exec_()
+            box.exec()
             return
 
     def loadDefault(self):
@@ -237,7 +237,7 @@ class MainWindow(QMainWindow, MainQtGui.Ui_MainWindow, QObject):
                 self.analysis.runFrameScan(nproc)
             except:
                 box = ErrorBox("Error while loading data: Probably you specified an atom selection with 0 atoms or invalid input files.")
-                box.exec_()
+                box.exec()
                 self.loadDataPushed()
             self.setInfoLabel("%d frames loaded." % len(self.analysis.contactResults))
             self.updateSelectionLabels(self.config.sel1text, self.config.sel2text)
@@ -247,7 +247,7 @@ class MainWindow(QMainWindow, MainQtGui.Ui_MainWindow, QObject):
     @pyqtSlot(float)
     def updateAnalyzedFrames(self, value):
         """Handles the progress bar update."""
-        self.progressBar.setValue(100 * value)
+        self.progressBar.setValue(int(100 * value))
         QApplication.processEvents()
 
     def setInfoLabel(self, txt):
@@ -262,7 +262,7 @@ class MainWindow(QMainWindow, MainQtGui.Ui_MainWindow, QObject):
         """Handles the Analyzer after the Accumulation maps have been set."""
         if self.analysis is None:
             box = ErrorBox(ErrorMessages.NODATA_PROMPTLOAD)
-            box.exec_()
+            box.exec()
             return
 
         self.maps, result = AnalysisDialog.getMapping()
@@ -428,7 +428,7 @@ class MainWindow(QMainWindow, MainQtGui.Ui_MainWindow, QObject):
         """Shows general statistics of the analyzed data over all frames."""
         if len(self.contacts) == 0 or self.contacts is None:
             box = ErrorBox(ErrorMessages.NOSCORES_PROMPTANALYSIS)
-            box.exec_()
+            box.exec()
             return
         self.statisticsView = Statistics(self.contacts, float(self.settingsView.nsPerFrameField.text()))
         self.statisticsView.showNormal()
@@ -452,7 +452,7 @@ class MainWindow(QMainWindow, MainQtGui.Ui_MainWindow, QObject):
         d.setWindowTitle("Developer Info")
         d.setFixedSize(500,150)
         d.setWindowModality(Qt.ApplicationModal)
-        d.exec_()
+        d.exec()
 
     def pushExport(self):
         """Opens the export panel."""
