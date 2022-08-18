@@ -1,7 +1,7 @@
-import sip
+from PyQt6 import sip
 import os
 
-from PyQt5.QtWidgets import QWidget, QFileDialog
+from PyQt6.QtWidgets import QWidget, QFileDialog
 
 from .Plotters import ContactPlotter
 from .detail_ui import *

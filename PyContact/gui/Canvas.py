@@ -1,7 +1,7 @@
-from PyQt5.QtGui import (QColor, QPainter, QFont, QPixmap)
-from PyQt5.QtWidgets import QWidget
-from PyQt5.QtCore import QSize
-from PyQt5.QtCore import pyqtSignal, QObject
+from PyQt6.QtGui import (QColor, QPainter, QFont, QPixmap)
+from PyQt6.QtWidgets import QWidget
+from PyQt6.QtCore import QSize
+from PyQt6.QtCore import pyqtSignal, QObject
 import numpy as np
 import math
 

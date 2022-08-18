@@ -7,7 +7,7 @@ import operator
 
 import MDAnalysis
 import numpy as np
-from PyQt5.QtCore import pyqtSignal, QObject
+from PyQt6.QtCore import pyqtSignal, QObject
 
 # TODO: fix aroundPatch with gridsearch in C code using cython
 from .Biochemistry import (AccumulatedContact, AtomContact, AccumulationMapIndex, HydrogenBond, TempContactAccumulate, HydrogenBondAtoms)

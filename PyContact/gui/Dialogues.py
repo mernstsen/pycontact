@@ -1,6 +1,6 @@
-from PyQt5.QtWidgets import QDialog, QGridLayout, QPushButton, QLabel, QLineEdit, QDialogButtonBox, QFileDialog, QCheckBox
-from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QDoubleValidator
+from PyQt6.QtWidgets import QDialog, QGridLayout, QPushButton, QLabel, QLineEdit, QDialogButtonBox, QFileDialog, QCheckBox
+from PyQt6.QtCore import Qt
+from PyQt6.QtGui import QDoubleValidator
 
 from ..core.LoadConfiguration import Configuration
 from .HelpButton import HelpButton
@@ -27,8 +27,8 @@ class TopoTrajLoaderDialog(QDialog):
         grid.addWidget(buttonPsf, 0, 0)
         grid.addWidget(buttonDcd, 0, 1)
         buttons = QDialogButtonBox(
-            QDialogButtonBox.Ok | QDialogButtonBox.Cancel,
-            Qt.Horizontal, self)
+            QDialogButtonBox.StandardButton.Ok | QDialogButtonBox.StandardButton.Cancel,
+            Qt.Orientation.Horizontal, self)
         buttons.accepted.connect(self.accept)
         buttons.rejected.connect(self.reject)
         grid.addWidget(buttons, 1, 0)
